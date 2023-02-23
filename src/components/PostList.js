@@ -7,12 +7,17 @@ const posts = [
     { name: 'Post 3', path: '/posts/3' },
     { name: 'Post 4', path: '/posts/4' }
 ];
-export default function PostList() {
+export default function PostList(props) {
     return (
       <div className="posts">
         <h1>Post List</h1>
         <ul>
           {/* Render a list of Links from the posts object   */}
+          {posts.map(post=>{
+            return <li key={post.name}>
+              <Link to={post.path}>{post.name}</Link>
+            </li>
+          })}
         </ul>
       </div>
     )
